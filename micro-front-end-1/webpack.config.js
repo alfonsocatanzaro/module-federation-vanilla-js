@@ -19,8 +19,15 @@ module.exports = {
         './MicroFrontend1': './src/index.js',
       },
       filename: 'microfrontend1.js',
-      shared: {},
+      shared: {}
+      
+      
     }),
+     new ModuleFederationPlugin({
+      remotes: {
+        shared_components: 'shared_components@http://localhost:4300/shared-components.js'
+      }
+     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     })
